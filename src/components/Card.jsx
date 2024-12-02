@@ -1,29 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCartDataFunc } from '../features/AddToCartSlice'
 
 const Card = () => {
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.product.data);
+    const selectCategoery = useSelector((state) => state.product.selectedCategory);
+
+    const [mainData, setMainData] = useState(data);
+
+    const hadleSelect = (e) => {
+        const filteredData = data.filter((item) => {
+            return item.category == selectCategoery
+        })
+        if (selectCategoery === "All") {
+            setMainData(data)
+        } else {
+            setMainData(filteredData)
+
+        }
+    }
+    const addToCart = (id) => {
+        dispatch(addToCartDataFunc(id))
+    }
+    useEffect(() => {
+        setMainData(data)
+        hadleSelect()
+    }, [data, selectCategoery])
+
     return (
         <>
-            <div className="w-full xl:w-1/5 lg:w-1/4 md:w-1/4 sm:w-1/3 mx-auto px-2 mb-3">
-                <div className=" bg-white rounded-lg shadow-xl overflow-hidden m3-6">
-                    <div className='p-3'>
-                        <img src="https://img.freepik.com/free-photo/seafood-pizza_74190-5944.jpg?w=996&t=st=1693062328~exp=1693062928~hmac=53fd9ad496580db41c6ca8066510cd89c6b0a0389de8bb6b875a78a1eda09cb5" alt="Product Image" className="w-3/4 m-auto" />
-                    </div>
-                    <div className="p-4">
-                        <div className='flex justify-between'>
-                            <h3 className="text-sm font-semibold text-gray-800">Product Name</h3>
-                            <p className="text-sm font-semibold text-greentheame ">$19.99</p>
+            {
+                mainData.map((item) => {
+                    return (
+                        <div key={item.id} className="w-full xl:w-1/5 lg:w-1/4 md:w-1/4 sm:w-1/3 px-2 mb-3">
+                            <div className=" bg-white rounded-lg shadow-xl overflow-hidden m3-6">
+                                <div className='p-3'>
+                                    <img src={item.img} alt="Product Image" className="w-auto h-[130px]  hover:scale-110 cursor-grab transition-all duration-500 ease-in-out m-auto" />
+                                </div>
+                                <div className="p-4">
+                                    <div className='flex justify-between'>
+                                        <h3 className="text-sm font-semibold text-gray-800">{item.name}</h3>
+                                        <p className="text-sm font-semibold text-greentheame ">₹{item.price}</p>
+                                    </div>
+                                    <p className="text-gray-600 mt-2 text-sm ">{item.desc.slice(0, 50)}...</p>
+                                    <div className="mt-4 flex justify-between items-center">
+                                        <p className="text-sm"> <span className='text-yellow-400 text-lg'>&#9733;</span> {item.rating}</p>
+                                        <button className="text-sm bg-greentheame text-white px-3 py-1 rounded-md hover:bg-green-800 transition" onClick={() => addToCart(item.id)}>Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p className="text-gray-600 mt-2 text-sm ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget libero quis est aliquam ullamcorper.</p>
-
-                        <div className="mt-4 flex justify-between items-center">
-                            <p className="text-sm"> <span className='text-yellow-400 text-lg'>&#9733;</span> 4.5</p>
-                            <button className="text-sm bg-greentheame text-white px-3 py-1 rounded-md hover:bg-green-800 transition">Add to Cart</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                    )
+                })
+            }
         </>
     )
 }

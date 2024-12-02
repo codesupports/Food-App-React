@@ -1,14 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
 import Header from './components/Header'
 import Categoery from './components/Categoery'
 import Card from './components/Card'
 import Footer from './components/Footer'
+import CartSection from './components/CartSection'
 
 function App() {
-
 
   return (
     <>
@@ -18,19 +15,11 @@ function App() {
         <main>
           <div className='flex flex-wrap pb-8'>
             <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
           </div>
         </main>
 
       </div>
+      <CartSection />
       <Footer />
     </>
   )

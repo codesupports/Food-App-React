@@ -8,11 +8,11 @@ const Header = () => {
                     <div className='text-greentheame text-2xl font-bold flex items-center'><a href="/">TastyFood</a></div>
                     <div className='flex items-center'>
                         <nav>
-                            <ul class="flex space-x-8">
-                                <li><a href="#" class="text-gray-950 hover:text-greentheame">Home</a></li>
-                                <li><a href="#about" class="text-gray-950 hover:text-greentheame">Receipe</a></li>
-                                <li><a href="#services" class="text-gray-950 hover:text-greentheame">About</a></li>
-                                <li><a href="#contact" class="text-gray-950 hover:text-greentheame">Contact</a></li>
+                            <ul className="flex space-x-8">
+                                <li><a href="#" className="text-gray-950 hover:text-greentheame">Home</a></li>
+                                <li><a href="#about" className="text-gray-950 hover:text-greentheame">Receipe</a></li>
+                                <li><a href="#services" className="text-gray-950 hover:text-greentheame">About</a></li>
+                                <li><a href="#contact" className="text-gray-950 hover:text-greentheame">Contact</a></li>
                             </ul>
                         </nav>
 
@@ -21,7 +21,7 @@ const Header = () => {
                         <input type="text" placeholder="Search..." className="px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 w-48 md:w-64" />
                         <button className="absolute top-0 right-0 mt-2 mr-3 text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm6 6a6 6 0 1 1 12 0 6 6 0 0 1-12 0zm0 0l6 6"></path>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm6 6a6 6 0 1 1 12 0 6 6 0 0 1-12 0zm0 0l6 6"></path>
                             </svg>
                         </button>
                     </div>
