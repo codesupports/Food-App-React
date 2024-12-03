@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCartDataFunc } from '../features/AddToCartSlice'
+import { addToCart } from '../features/productSlice'
 
 const Card = () => {
     const dispatch = useDispatch();
@@ -20,11 +20,11 @@ const Card = () => {
 
         }
     }
-    const addToCart = (id) => {
-        dispatch(addToCartDataFunc(id))
+    const addToCartFunction = (id) => {
+        dispatch(addToCart(id))
     }
     useEffect(() => {
-        setMainData(data)
+        // setMainData(data)
         hadleSelect()
     }, [data, selectCategoery])
 
@@ -46,7 +46,7 @@ const Card = () => {
                                     <p className="text-gray-600 mt-2 text-sm ">{item.desc.slice(0, 50)}...</p>
                                     <div className="mt-4 flex justify-between items-center">
                                         <p className="text-sm"> <span className='text-yellow-400 text-lg'>&#9733;</span> {item.rating}</p>
-                                        <button className="text-sm bg-greentheame text-white px-3 py-1 rounded-md hover:bg-green-800 transition" onClick={() => addToCart(item.id)}>Add to Cart</button>
+                                        <button className="text-sm bg-greentheame text-white px-3 py-1 rounded-md hover:bg-green-800 transition" onClick={() => addToCartFunction(item.id)}>Add to Cart</button>
                                     </div>
                                 </div>
                             </div>

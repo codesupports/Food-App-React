@@ -6,20 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const CartSection = () => {
     const [isOpen, setIsOpen] = useState(false);
-
-    const dispatch = useDispatch();
-    const cartItemId = useSelector((state) => state.addToCartDataFunc);
-    console.log(cartItemId)
+    const data = useSelector((state) => state.product.addCart);
 
     const toggleNav = () => {
         setIsOpen(!isOpen)
     }
 
-
-
     return (
         <>
-            <div onClick={toggleNav} className={`fixed bg-white bottom-2 right-2 p-4 rounded-full shadow-lg animate-bounce cursor-pointer`}>
+            <div onClick={toggleNav} className={`fixed bg-white bottom-2 right-2 p-4 rounded-full shadow-lg  cursor-pointer ${data.length > 0 ? "animate-bounce" : ""} `}>
                 <img src={cartIcon} className='w-5' alt='addtocart' />
             </div>
             <div className={`flex h-screen fixed top-0 right-0 shadow-xl transition duration-700 ease-in-out ${isOpen ? "" : "translate-x-96"}`}>
@@ -32,7 +27,7 @@ const CartSection = () => {
                     <OrderCard />
 
                     <div className='absolute bottom-4 left-2 right-2'>
-                        <p className='text-sm pb-2'><span>Items: </span><span className='font-semibold text-greentheame'>2</span></p>
+                        <p className='text-sm pb-2'><span>Items: </span><span className='font-semibold text-greentheame'>{data ? data.length : 0}</span></p>
                         <p className='text-sm'><span>Total Amount: </span><span className='font-semibold text-greentheame'>2000/-</span></p>
 
                         <div className='border-t pt-2 mt-2'>
