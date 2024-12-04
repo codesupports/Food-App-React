@@ -64,7 +64,7 @@ const OrderCard = () => {
                                         {/* <span className='text-black cursor-pointer'><img src={deleteIcon} className='w-4' alt='delete' /> </span> */}
                                     </div>
                                     <div className='text-sm flex justify-between pt-1'>
-                                        <span className='text-greentheame font-semibold'>${item.price * productQuantity(item.id)}</span>
+                                        <span className='text-greentheame font-semibold'>₹{item.price * productQuantity(item.id)}</span>
                                         <div className='flex justify-center items-center'>
                                             <div className='border w-5 px-1 text-sm rounded-sm border-gray-400 text-greentheame cursor-pointer  hover:bg-greentheame hover:text-white' onClick={() => addToCartFunction(item.id)}>+</div>
                                             <div className='px-3'>{productQuantity(item.id)}</div>

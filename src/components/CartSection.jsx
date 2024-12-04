@@ -33,7 +33,7 @@ const CartSection = () => {
 
                     <div className='absolute bottom-4 left-2 right-2'>
                         <p className='text-sm pb-2'><span>Items: </span><span className='font-semibold text-greentheame'>{data ? data.length : 0}</span></p>
-                        <p className='text-sm'><span>Total Amount: </span><span className='font-semibold text-greentheame'>{totalAmount ? totalAmount : 0}/-</span></p>
+                        <p className='text-sm'><span>Total Amount: </span><span className='font-semibold text-greentheame'>₹{totalAmount ? totalAmount : 0}/-</span></p>
 
                         <div className='border-t pt-2 mt-2'>
                             <button className="text-sm w-full bg-greentheame text-white px-3 py-1 rounded-md hover:bg-green-800 transition">Checkout</button>
