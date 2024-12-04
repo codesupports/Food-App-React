@@ -9,7 +9,6 @@ const OrderCard = () => {
     const data = useSelector((state) => state.product.addCart);
     const [actualData, setActualData] = useState(data);
     const [countMap, setCountMap] = useState({});
-    const [recipeCount, setRecipeCount] = useState(0);
 
 
     const uniqueObject = () => {
@@ -40,17 +39,15 @@ const OrderCard = () => {
         return countMap[id] ?? 'Key does not exist in the second object.';
     };
 
-    console.log('recipeCount', countMap)
-
     const addToCartFunction = (id) => {
         dispatch(addToCart(id))
     }
-    const removeFromCartFunction = (id, index) => {
-        // dispatch(removeCart({ id, index }))
-        // countMap[id] = (countMap[id] || 0) - 1
+    const removeFromCartFunction = (id) => {
+        dispatch(removeCart(id))
     }
 
-    // console.log('recipeCount', countMap)
+
+
     return (
         <>
             {
@@ -64,14 +61,14 @@ const OrderCard = () => {
                                 <div className='w-full'>
                                     <div className='text-sm flex justify-between'>
                                         <span className='text-xs'>{item.name}</span>
-                                        <span className='text-black cursor-pointer'><img src={deleteIcon} className='w-4' alt='delete' /> </span>
+                                        {/* <span className='text-black cursor-pointer'><img src={deleteIcon} className='w-4' alt='delete' /> </span> */}
                                     </div>
                                     <div className='text-sm flex justify-between pt-1'>
                                         <span className='text-greentheame font-semibold'>${item.price * productQuantity(item.id)}</span>
                                         <div className='flex justify-center items-center'>
                                             <div className='border w-5 px-1 text-sm rounded-sm border-gray-400 text-greentheame cursor-pointer  hover:bg-greentheame hover:text-white' onClick={() => addToCartFunction(item.id)}>+</div>
                                             <div className='px-3'>{productQuantity(item.id)}</div>
-                                            <div className='border w-5 px-1 text-sm text-center  rounded-sm border-gray-400 text-greentheame cursor-pointer  hover:bg-greentheame hover:text-white' onClick={() => removeFromCartFunction(item.id, index)}>-</div>
+                                            <div className='border w-5 px-1 text-sm text-center  rounded-sm border-gray-400 text-greentheame cursor-pointer  hover:bg-greentheame hover:text-white' onClick={() => removeFromCartFunction(item.id)}>-</div>
                                         </div>
                                     </div>
                                 </div>

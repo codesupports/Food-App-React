@@ -21,13 +21,12 @@ const productSlice = createSlice({
             state.addCart.push(...existingItem);
         },
         removeCart: (state, action) => {
-            state.addCart = state.addCart.filter((item) => {
-                return item.id !== action.payload.id && item[action.payload.index] == action.payload.index
-            });
-            // const existingItem = state.data.filter((xItem) => {
-            //     return xItem.id !== action.payload
-            // })
-            // state.addCart.push(...existingItem);
+            let idToRemove = action.payload;
+            let indexToRemove = state.addCart.findIndex(obj => obj.id === idToRemove);
+
+            if (indexToRemove !== -1) {
+                state.addCart.splice(indexToRemove, 1); // Removes the first object with the matching `id`
+            }
         },
     }
 })
