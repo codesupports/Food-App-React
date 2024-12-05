@@ -16,5 +16,17 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.w-calc': {
+          width: 'calc(100% - 20px)',
+        },
+        '.h-calc': {
+          height: 'calc(100vh - 240px)',
+        },
+        // Add more calc() utilities as needed
+      })
+    }
+  ],
 }

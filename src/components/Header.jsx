@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import hamburgerIcon from '../../public/hamburger.svg'
 import { useSelector, useDispatch } from 'react-redux';
 import { searhData } from '../features/productSlice'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const data = useSelector((state) => state.product.data);
@@ -33,20 +34,22 @@ const Header = () => {
         <>
             <header className='bg-white p-5 shadow-md  top-0 w-full fixed z-10'>
                 <div className='flex justify-between container m-auto'>
-                    <div className='text-greentheame text-2xl font-bold flex items-center'><a href="/">TastyFood</a></div>
+                    <div className='text-greentheame text-2xl font-bold flex items-center'>
+                        <Link to="/">TastyFood</Link>
+                    </div>
                     <div className='items-center hidden sm:block pt-2'>
                         <nav>
                             <ul className="flex space-x-8">
-                                <li><a href="/#" className="text-gray-950 hover:text-greentheame">Home</a></li>
-                                <li><a href="#about" className="text-gray-950 hover:text-greentheame">Receipe</a></li>
-                                <li><a href="#services" className="text-gray-950 hover:text-greentheame">About</a></li>
-                                <li><a href="#contact" className="text-gray-950 hover:text-greentheame">Contact</a></li>
+                                <li><Link to="/" className="text-gray-950 hover:text-greentheame">Home</Link></li>
+                                <li><a href="#" className="text-gray-950 hover:text-greentheame">Receipe</a></li>
+                                <li><a href="#" className="text-gray-950 hover:text-greentheame">About</a></li>
+                                <li><a href="#" className="text-gray-950 hover:text-greentheame">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                     <button className='block lg:hidden sm:hidden' onClick={toggleMenu}><img src={hamburgerIcon} className='w-7' alt='' /></button>
                     {/* mobile Navigation */}
-                    <nav className={`w-full block lg:hidden sm:hidden bg-white h-screen fixed top-0 right-0 transition duration-700 ease-in-out px-3 py-5 z-10 ${isOpen ? "translate-x-full" : "translate-x-0"} `}>
+                    <nav className={`w-full block lg:hidden sm:hidden bg-white h-screen fixed top-0 right-0 transition duration-700 ease-in-out px-3 py-5 z-10 ${isOpen ? "translate-x-0" : "translate-x-full"} `}>
                         <span className='cursor-pointer absolute right-5 text-lg font-bold' onClick={toggleMenu}>&#x2715;</span>
                         <ul className="mt-5">
                             <li><a href="#" className="text-gray-950 hover:text-greentheame py-2 pl-3 block border-b">Home</a></li>
@@ -58,18 +61,10 @@ const Header = () => {
 
                     <div className="relative hidden sm:block">
                         <input onChange={(e) => handelSearch(e.target.value)} type="text" placeholder="Search..." className="px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 w-48 md:w-64" />
-                        <button className="absolute top-0 right-0 mt-2 mr-3 text-blue-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm6 6a6 6 0 1 1 12 0 6 6 0 0 1-12 0zm0 0l6 6"></path>
-                            </svg>
-                        </button>
+
                     </div>
                 </div>
             </header>
-            <section role="banner" className=' bg-black bg-opacity-10 m-auto py-4 lg:py-10 mt-14'>
-                <h1 className="text-center leading-normal text-white text-2xl sm:text-4xl lg:text-6xl from-600 pt-3 lg:pt-10 pb-5 rounded-lg ">Healthy Cooking Receipes and the right Nutrition.</h1>
-                <p className='text-center text-xl font-bold'>Browse Through Over 65,000 Tasty Food</p>
-            </section>
         </>
     )
 }

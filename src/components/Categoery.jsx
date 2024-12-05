@@ -11,7 +11,6 @@ const Categoery = () => {
 
     const [activeLink, setActiveLink] = useState("All");
 
-
     const filterCategoery = data.map((item) => {
         return item.category
     })
@@ -20,10 +19,10 @@ const Categoery = () => {
     const hadleSelect = (val) => {
         setActiveLink(val);
         dispatch(setCategory(val))
-        // console.log(activeLink === selCat)
+        console.log('activeLink', activeLink === selCat)
     }
-    // console.log('activeLink', activeLink === selCat ? "active" : "")
-
+    console.log("activeLink:", activeLink, "selCat:", selCat)
+    // ${activeLink === selCat ? "bg-greentheame1 text-white" : "bg-white"}
     return (
         <div className='py-5'>
             <div className='lg:flex'>
@@ -32,7 +31,12 @@ const Categoery = () => {
                     {
                         categoeryName.map((categ, index) => {
                             return (
-                                <li key={index} className={`text-sm bg-white px-3 py-2  cursor-pointer rounded-md hover:bg-greentheame hover:text-white ${activeLink === selCat ? "" : "active"}`} onClick={(e) => hadleSelect(e.target.innerText)}>{categ}</li>
+                                <li
+                                    key={index}
+                                    className={`bg-white text-sm  px-3 py-2  cursor-pointer rounded-md hover:bg-greentheame hover:text-white `}
+                                    onClick={(e) => hadleSelect(categ)}>
+                                    {categ}
+                                </li>
                             )
                         })
                     }

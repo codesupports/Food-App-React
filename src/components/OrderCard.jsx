@@ -53,7 +53,7 @@ const OrderCard = () => {
             {
                 actualData?.map((item, index) => {
                     return (
-                        <div key={index} className="mb-4  p-2 rounded bg-gray-50 shadow-md">
+                        <div key={index} className="mb-4 p-2 rounded bg-slate-50 shadow-inner border ">
                             <div className='flex'>
                                 <div className='w-10 mr-2 flex items-center' >
                                     <img src={item.img} alt="" />
@@ -65,7 +65,7 @@ const OrderCard = () => {
                                     </div>
                                     <div className='text-sm flex justify-between pt-1'>
                                         <span className='text-greentheame font-semibold'>₹{item.price * productQuantity(item.id)}</span>
-                                        <div className='flex justify-center items-center bg-gray-200 px-3  rounded-2xl '>
+                                        <div className='flex justify-center items-center bg-gray-100 px-3  rounded-2xl shadow-inner '>
                                             <div className='px-1 text-2xl text-center cursor-pointer' onClick={() => removeFromCartFunction(item.id)}>-</div>
                                             <div className='px-3 font-semibold text-md '>{productQuantity(item.id)}</div>
                                             <div className='px-1 text-lg rounded-sm  cursor-pointer' onClick={() => addToCartFunction(item.id)}>+</div>

@@ -6,7 +6,7 @@ const Card = () => {
     const dispatch = useDispatch();
     // const data = useSelector((state) => state.product.data);
     const searchData = useSelector((state) => state.product.searchData);
-    console.log("asdasd", searchData)
+
     const selectCategoery = useSelector((state) => state.product.selectedCategory);
 
     const [mainData, setMainData] = useState(searchData);

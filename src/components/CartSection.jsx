@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import OrderCard from './OrderCard'
 import cartIcon from '../../public/cart.svg'
+import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -27,12 +28,12 @@ const CartSection = () => {
                 </div>
             }
             <div className={`flex h-screen fixed z-20 top-0 right-0 shadow-xl transition duration-700 ease-in-out ${isOpen ? "" : "translate-x-96"}`}>
-                <div className="w-72 bg-white p-4 md:block">
+                <div className="w-80 bg-white p-4 md:block">
                     <div className='flex justify-between'>
                         <h2 className="text-2xl font-bold mb-6">My Order</h2>
                         <span className=' cursor-pointer' onClick={toggleNav}>&#x2715;</span>
                     </div>
-                    <div className='h-4/5 overflow-auto'>
+                    <div className='h-calc overflow-auto'>
                         <OrderCard />
                     </div>
 
@@ -41,8 +42,12 @@ const CartSection = () => {
                         <p className='text-sm pb-2'><span>Items: </span><span className='font-semibold text-greentheame'>{data ? data.length : 0}</span></p>
                         <p className='text-sm'><span>Total Amount: </span><span className='font-semibold text-greentheame'>₹{totalAmount ? totalAmount : 0}/-</span></p>
 
-                        <div className='border-t pt-2 mt-2'>
-                            <button className="text-sm w-full bg-greentheame text-white px-3 py-1 rounded-md hover:bg-greentheameHover transition">Checkout</button>
+                        <div className='border-t pt-2 mt-2 mb-6 '>
+                            <Link to="/checkout"
+                                className="text-sm block text-center w-full bg-greentheame text-white px-3 py-1 rounded-md hover:bg-greentheameHover transition"
+                            >
+                                Checkout
+                            </Link>
                         </div>
                     </div>
                 </div>
