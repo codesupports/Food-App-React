@@ -5,12 +5,16 @@ import foodData from '../FoodData'
 const productSlice = createSlice({
     name: 'product',
     initialState: {
+        searchData: foodData,
         data: foodData,
         selectedCategory: 'All',
         addCart: [],
         cartItem: []
     },
     reducers: {
+        searhData: (state, action) => {
+            state.searchData = action.payload
+        },
         setCategory: (state, action) => {
             state.selectedCategory = action.payload;
         },
@@ -22,7 +26,7 @@ const productSlice = createSlice({
         },
         removeCart: (state, action) => {
             let idToRemove = action.payload;
-            let indexToRemove = state.addCart.findIndex(obj => obj.id === idToRemove);
+            let indexToRemove = state.addCart.findLastIndex(obj => obj.id === idToRemove);
 
             if (indexToRemove !== -1) {
                 state.addCart.splice(indexToRemove, 1); // Removes the first object with the matching `id`
@@ -32,7 +36,7 @@ const productSlice = createSlice({
 })
 
 // Export actions to be used in components
-export const { setCategory, addToCart, removeCart } = productSlice.actions;
+export const { searhData, setCategory, addToCart, removeCart } = productSlice.actions;
 
 // Export the reducer to be included in the store
 export default productSlice.reducer;

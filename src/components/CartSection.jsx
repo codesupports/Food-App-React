@@ -19,24 +19,30 @@ const CartSection = () => {
     }, 0)
     return (
         <>
-            <div onClick={toggleNav} className={`fixed bg-white bottom-2 right-2 p-4 rounded-full shadow-lg  cursor-pointer ${data.length > 0 ? "animate-bounce" : ""} `}>
-                <img src={cartIcon} className='w-5' alt='addtocart' />
-            </div>
-            <div className={`flex h-screen fixed top-0 right-0 shadow-xl transition duration-700 ease-in-out ${isOpen ? "" : "translate-x-96"}`}>
-                <div className="w-64 bg-white p-4 md:block hidden">
+            {data.length > 0 &&
+                <div onClick={toggleNav} className={`fixed z-10 bg-white bottom-3 right-5 p-4 rounded-full shadow-lg  cursor-pointer ${data.length > 0 ? "animate-bounce" : ""} `}>
+                    <span class="bg-greentheame text-white text-xs p-2 py-1 rounded absolute -top-3 -right-1">{data ? data.length : ""}</span>
+
+                    <img src={cartIcon} className='w-5' alt='addtocart' />
+                </div>
+            }
+            <div className={`flex h-screen fixed z-20 top-0 right-0 shadow-xl transition duration-700 ease-in-out ${isOpen ? "" : "translate-x-96"}`}>
+                <div className="w-72 bg-white p-4 md:block">
                     <div className='flex justify-between'>
                         <h2 className="text-2xl font-bold mb-6">My Order</h2>
                         <span className=' cursor-pointer' onClick={toggleNav}>&#x2715;</span>
                     </div>
+                    <div className='h-4/5 overflow-auto'>
+                        <OrderCard />
+                    </div>
 
-                    <OrderCard />
 
-                    <div className='absolute bottom-4 left-2 right-2'>
+                    <div className='absolute bottom-4 left-2 right-2 '>
                         <p className='text-sm pb-2'><span>Items: </span><span className='font-semibold text-greentheame'>{data ? data.length : 0}</span></p>
                         <p className='text-sm'><span>Total Amount: </span><span className='font-semibold text-greentheame'>₹{totalAmount ? totalAmount : 0}/-</span></p>
 
                         <div className='border-t pt-2 mt-2'>
-                            <button className="text-sm w-full bg-greentheame text-white px-3 py-1 rounded-md hover:bg-green-800 transition">Checkout</button>
+                            <button className="text-sm w-full bg-greentheame text-white px-3 py-1 rounded-md hover:bg-greentheameHover transition">Checkout</button>
                         </div>
                     </div>
                 </div>

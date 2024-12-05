@@ -13,7 +13,7 @@ function App() {
       <div className='container m-auto font-sans'>
         <Categoery />
         <main>
-          <div className='flex flex-wrap pb-8'>
+          <div className='flex flex-wrap pb-28'>
             <Card />
           </div>
         </main>

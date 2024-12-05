@@ -4,17 +4,19 @@ import { addToCart } from '../features/productSlice'
 
 const Card = () => {
     const dispatch = useDispatch();
-    const data = useSelector((state) => state.product.data);
+    // const data = useSelector((state) => state.product.data);
+    const searchData = useSelector((state) => state.product.searchData);
+    console.log("asdasd", searchData)
     const selectCategoery = useSelector((state) => state.product.selectedCategory);
 
-    const [mainData, setMainData] = useState(data);
+    const [mainData, setMainData] = useState(searchData);
 
     const hadleSelect = (e) => {
-        const filteredData = data.filter((item) => {
+        const filteredData = searchData.filter((item) => {
             return item.category == selectCategoery
         })
         if (selectCategoery === "All") {
-            setMainData(data)
+            setMainData(searchData)
         } else {
             setMainData(filteredData)
 
@@ -26,7 +28,7 @@ const Card = () => {
     useEffect(() => {
         // setMainData(data)
         hadleSelect()
-    }, [data, selectCategoery])
+    }, [searchData, selectCategoery])
 
     return (
         <>
@@ -45,8 +47,8 @@ const Card = () => {
                                     </div>
                                     <p className="text-gray-600 mt-2 text-sm ">{item.desc.slice(0, 50)}...</p>
                                     <div className="mt-4 flex justify-between items-center">
-                                        <p className="text-sm"> <span className='text-yellow-400 text-lg'>&#9733;</span> {item.rating}</p>
-                                        <button className="text-sm bg-greentheame text-white px-3 py-1 rounded-md hover:bg-green-800 transition" onClick={() => addToCartFunction(item.id)}>Add to Cart</button>
+                                        <p className="text-sm"> <span className='text-green-700 text-lg'>&#9733;</span> {item.rating}</p>
+                                        <button className="text-sm bg-greentheame text-white px-3 py-1 rounded-md hover:bg-greentheameHover transition" onClick={() => addToCartFunction(item.id)}>Add to Cart</button>
                                     </div>
                                 </div>
                             </div>

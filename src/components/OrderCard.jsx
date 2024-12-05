@@ -60,15 +60,15 @@ const OrderCard = () => {
                                 </div>
                                 <div className='w-full'>
                                     <div className='text-sm flex justify-between'>
-                                        <span className='text-xs'>{item.name}</span>
+                                        <span className='text-sm'>{item.name}</span>
                                         {/* <span className='text-black cursor-pointer'><img src={deleteIcon} className='w-4' alt='delete' /> </span> */}
                                     </div>
                                     <div className='text-sm flex justify-between pt-1'>
                                         <span className='text-greentheame font-semibold'>₹{item.price * productQuantity(item.id)}</span>
-                                        <div className='flex justify-center items-center'>
-                                            <div className='border w-5 px-1 text-sm rounded-sm border-gray-400 text-greentheame cursor-pointer  hover:bg-greentheame hover:text-white' onClick={() => addToCartFunction(item.id)}>+</div>
-                                            <div className='px-3'>{productQuantity(item.id)}</div>
-                                            <div className='border w-5 px-1 text-sm text-center  rounded-sm border-gray-400 text-greentheame cursor-pointer  hover:bg-greentheame hover:text-white' onClick={() => removeFromCartFunction(item.id)}>-</div>
+                                        <div className='flex justify-center items-center bg-gray-200 px-3  rounded-2xl '>
+                                            <div className='px-1 text-2xl text-center cursor-pointer' onClick={() => removeFromCartFunction(item.id)}>-</div>
+                                            <div className='px-3 font-semibold text-md '>{productQuantity(item.id)}</div>
+                                            <div className='px-1 text-lg rounded-sm  cursor-pointer' onClick={() => addToCartFunction(item.id)}>+</div>
                                         </div>
                                     </div>
                                 </div>
