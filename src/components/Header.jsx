@@ -14,7 +14,6 @@ const Header = () => {
         setIsOpen(!isOpen);
     };
 
-
     const handelSearch = (elem) => { // search data by serach input
         const filteredData = data.filter((item) => {
             return item.name.toLowerCase().includes(elem.toLowerCase())
@@ -27,8 +26,6 @@ const Header = () => {
         // setMainData(data)
         dispatch(searhData(mainData))
     }, [mainData, data])
-
-    // console.log('mainData', mainData)
 
     return (
         <>

@@ -22,7 +22,7 @@ const CartSection = () => {
         <>
             {data.length > 0 &&
                 <div onClick={toggleNav} className={`fixed z-10 bg-white bottom-3 right-5 p-4 rounded-full shadow-lg  cursor-pointer ${data.length > 0 ? "animate-bounce" : ""} `}>
-                    <span class="bg-greentheame text-white text-xs p-2 py-1 rounded absolute -top-3 -right-1">{data ? data.length : ""}</span>
+                    <span className="bg-greentheame text-white text-xs p-2 py-1 rounded absolute -top-3 -right-1">{data ? data.length : ""}</span>
 
                     <img src={cartIcon} className='w-5' alt='addtocart' />
                 </div>
@@ -36,12 +36,9 @@ const CartSection = () => {
                     <div className='h-calc overflow-auto'>
                         <OrderCard />
                     </div>
-
-
                     <div className='absolute bottom-4 left-2 right-2 '>
                         <p className='text-sm pb-2'><span>Items: </span><span className='font-semibold text-greentheame'>{data ? data.length : 0}</span></p>
                         <p className='text-sm'><span>Total Amount: </span><span className='font-semibold text-greentheame'>₹{totalAmount ? totalAmount : 0}/-</span></p>
-
                         <div className='border-t pt-2 mt-2 mb-6 '>
                             <Link to="/checkout"
                                 className="text-sm block text-center w-full bg-greentheame text-white px-3 py-1 rounded-md hover:bg-greentheameHover transition"

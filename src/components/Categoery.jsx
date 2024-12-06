@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../features/productSlice'
 
 const Categoery = () => {
 
-
     const dispatch = useDispatch()
     const data = useSelector((state) => state.product.data);
-    const selCat = useSelector((state) => state.product.selectedCategory);
 
     const [activeLink, setActiveLink] = useState("All");
 
@@ -19,10 +17,7 @@ const Categoery = () => {
     const hadleSelect = (val) => {
         setActiveLink(val);
         dispatch(setCategory(val))
-        console.log('activeLink', activeLink === selCat)
     }
-    console.log("activeLink:", activeLink, "selCat:", selCat)
-    // ${activeLink === selCat ? "bg-greentheame1 text-white" : "bg-white"}
     return (
         <div className='py-5'>
             <div className='lg:flex'>
@@ -33,7 +28,7 @@ const Categoery = () => {
                             return (
                                 <li
                                     key={index}
-                                    className={`bg-white text-sm  px-3 py-2  cursor-pointer rounded-md hover:bg-greentheame hover:text-white `}
+                                    className={`${activeLink === categ ? "bg-greentheame text-white" : "bg-white"} text-sm  px-3 py-2  cursor-pointer rounded-md hover:bg-greentheame hover:text-white `}
                                     onClick={(e) => hadleSelect(categ)}>
                                     {categ}
                                 </li>

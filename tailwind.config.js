@@ -11,7 +11,7 @@ export default {
         sans: ['Roboto', 'Arial', 'sans-serif'],
       },
       colors: {
-        greentheame: "#ef4f5f",
+        greentheame: "#E31226",
         greentheameHover: "#d74150"
       },
     },

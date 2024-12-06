@@ -1,12 +1,22 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import backIcon from '../../public/back.svg'
 
 const CheckoutPage = () => {
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+        navigate(-1); // -1 to go back to the previous page
+    };
+
     return (
         <div className="bg-gray-100 flex items-center justify-center h-screen">
 
             <div className="bg-white p-8 rounded-lg shadow-lg w-full lg:w-[600px] md:w-[600px] sm:w-full mx-5">
-                <h2 className="text-2xl font-semibold mb-6 text-center">Checkout</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-center relative">
+                    <span className='inline-block absolute left-0'>
+                        <img src={backIcon} alt='Back' className='w-8 cursor-pointer' onClick={handleGoBack} />
+                    </span>
+                    Checkout</h2>
                 <form action="#" method="POST">
 
                     <div className="mb-4">

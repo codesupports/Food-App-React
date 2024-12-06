@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import backIcon from '../../public/back.svg'
 
 const Payment = () => {
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState(0);
+
+    const handleGoBack = () => {
+        navigate(-1); // -1 to go back to the previous page
+      };
+
     return (
         <div className="bg-gray-100 flex items-center justify-center h-screen ">
 
             <div className="bg-white p-8 rounded-lg shadow-lg w-full lg:w-[600px] md:w-[600px] sm:w-full mx-5">
                 <div className=' relative min-h-[500px]'>
-                    <h2 className="text-2xl font-semibold mb-6 text-center">Payment Method</h2>
-
+                    <h2 className="text-2xl font-semibold mb-6 text-center relative">
+                        <span className='inline-block absolute left-0'>
+                            <img src={backIcon} alt='Back' className='w-8 cursor-pointer' onClick={handleGoBack} />
+                        </span>
+                        Payment Method</h2>
                     <div className='mb-4 flex gap-4'>
                         <button
                             onClick={() => setActiveTab(0)}
@@ -49,7 +59,7 @@ const Payment = () => {
                                 </div>
                                 <div>
                                     <label for="CVV" className="block text-sm font-medium text-gray-700">CVV</label>
-                                    <input type="text" id="CVV" name="CVV" placeholder="CVV" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                    <input type="password" id="CVV" name="CVV" placeholder="***" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                                 </div>
                             </div>
                             <div className='mb-4 flex'>
