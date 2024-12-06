@@ -37,7 +37,7 @@ const Payment = () => {
                         <form >
                             <div className="mb-20">
                                 <label for="name" className="block text-sm font-medium text-gray-700">Address</label>
-                                <input type="text" id="name" name="name" placeholder="Address" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                <input type="text" id="name" name="name" placeholder="Address" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                             </div>
                         </form>
                     }
@@ -45,21 +45,21 @@ const Payment = () => {
                         <form>
                             <div className="mb-4">
                                 <label for="name" className="block text-sm font-medium text-gray-700">Card Holder Name</label>
-                                <input type="text" id="name" name="name" placeholder="John Doe" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                <input type="text" id="name" name="name" placeholder="John Doe" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                             </div>
 
                             <div className="mb-4">
                                 <label for="number" className="block text-sm font-medium text-gray-700">Card Number</label>
-                                <input type="number" id="number" name="number" placeholder="1234 5678 9012 0000" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                <input type="number" id="number" name="number" placeholder="1234 5678 9012 0000" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                             </div>
                             <div className="mb-4 flex gap-6">
                                 <div>
                                     <label for="Month" className="block text-sm font-medium text-gray-700">Month/Year</label>
-                                    <input type="text" id="Month" name="Month" placeholder="Enter Here" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                    <input type="text" id="Month" name="Month" placeholder="Enter Here" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                                 </div>
                                 <div>
                                     <label for="CVV" className="block text-sm font-medium text-gray-700">CVV</label>
-                                    <input type="password" id="CVV" name="CVV" placeholder="***" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                    <input type="password" id="CVV" name="CVV" placeholder="***" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                                 </div>
                             </div>
                             <div className='mb-4 flex'>

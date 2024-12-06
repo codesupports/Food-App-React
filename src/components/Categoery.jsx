@@ -26,11 +26,12 @@ const Categoery = () => {
                     {
                         categoeryName.map((categ, index) => {
                             return (
-                                <li
-                                    key={index}
-                                    className={`${activeLink === categ ? "bg-greentheame text-white" : "bg-white"} text-sm  px-3 py-2  cursor-pointer rounded-md hover:bg-greentheame hover:text-white `}
-                                    onClick={(e) => hadleSelect(categ)}>
-                                    {categ}
+                                <li key={index} >
+                                    <a aria-label={categ} tabIndex={1} className={`${activeLink === categ ? "bg-greentheame text-white" : "bg-white"} text-sm  px-3 py-2  cursor-pointer rounded-md hover:bg-greentheame hover:text-white `}
+                                        onClick={(e) => hadleSelect(categ)}>
+                                        {categ}
+                                    </a>
+
                                 </li>
                             )
                         })

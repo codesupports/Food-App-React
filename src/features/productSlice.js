@@ -5,6 +5,7 @@ import foodData from '../FoodData'
 const productSlice = createSlice({
     name: 'product',
     initialState: {
+        loading: false,
         searchData: foodData,
         data: foodData,
         selectedCategory: 'All',
@@ -12,6 +13,9 @@ const productSlice = createSlice({
         cartItem: []
     },
     reducers: {
+        setLoading: (state, action) => {
+            state.loading = action.payload;
+        },
         searhData: (state, action) => {
             state.searchData = action.payload
         },
@@ -36,7 +40,7 @@ const productSlice = createSlice({
 })
 
 // Export actions to be used in components
-export const { searhData, setCategory, addToCart, removeCart } = productSlice.actions;
+export const { setLoading, searhData, setCategory, addToCart, removeCart } = productSlice.actions;
 
 // Export the reducer to be included in the store
 export default productSlice.reducer;

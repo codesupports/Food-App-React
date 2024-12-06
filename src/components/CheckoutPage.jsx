@@ -8,6 +8,7 @@ const CheckoutPage = () => {
         navigate(-1); // -1 to go back to the previous page
     };
 
+
     return (
         <div className="bg-gray-100 flex items-center justify-center h-screen">
 
@@ -17,30 +18,30 @@ const CheckoutPage = () => {
                         <img src={backIcon} alt='Back' className='w-8 cursor-pointer' onClick={handleGoBack} />
                     </span>
                     Checkout</h2>
-                <form action="#" method="POST">
+                <form>
 
                     <div className="mb-4">
-                        <label for="name" className="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                     </div>
 
                     <div className="mb-4">
-                        <label for="email" className="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                     </div>
 
                     <div className="mb-4">
-                        <label for="Phone" className="block text-sm font-medium text-gray-700">Phone</label>
-                        <input type="text" id="Phone" name="Phone" placeholder="+91 9999999999" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                        <label htmlFor="Phone" className="block text-sm font-medium text-gray-700">Phone</label>
+                        <input type="text" id="Phone" name="Phone" placeholder="+91 9999999999" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                     </div>
                     <div className="mb-4 flex gap-6">
                         <div>
-                            <label for="Phone" className="block text-sm font-medium text-gray-700">Zip Code</label>
-                            <input type="text" id="Phone" name="Phone" placeholder="110011" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                            <label htmlFor="Phone" className="block text-sm font-medium text-gray-700">Zip Code</label>
+                            <input type="text" id="Phone" name="Phone" placeholder="110011" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                         </div>
                         <div>
-                            <label for="Phone" className="block text-sm font-medium text-gray-700">City</label>
-                            <input type="text" id="Phone" name="Phone" placeholder="City" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                            <label htmlFor="Phone" className="block text-sm font-medium text-gray-700">City</label>
+                            <input type="text" id="Phone" name="Phone" placeholder="City" className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greentheame focus:border-transparent" />
                         </div>
                     </div>
                     <div className='mb-4 flex'>

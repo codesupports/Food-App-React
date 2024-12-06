@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import OrderCard from './OrderCard'
 import cartIcon from '../../public/cart.svg'
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { setLoading } from '../features/productSlice'
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from './Loader';
 
 const CartSection = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const data = useSelector((state) => state.product.addCart);
+    const loading = useSelector((state) => state.product.loading);
 
     const toggleNav = () => {
         setIsOpen(!isOpen)
@@ -18,8 +22,18 @@ const CartSection = () => {
     const totalAmount = getPriceArr.reduce((a, c) => {
         return a + c
     }, 0)
+
+    const handleRouteChange = (path) => {
+        dispatch(setLoading(true));
+        setTimeout(() => {
+            navigate(path); // Navigate to the new route
+            dispatch(setLoading(false));
+        }, 1000); // Simulate a loading delay
+    };
+
     return (
         <>
+            {loading && <Loader />}
             {data.length > 0 &&
                 <div onClick={toggleNav} className={`fixed z-10 bg-white bottom-3 right-5 p-4 rounded-full shadow-lg  cursor-pointer ${data.length > 0 ? "animate-bounce" : ""} `}>
                     <span className="bg-greentheame text-white text-xs p-2 py-1 rounded absolute -top-3 -right-1">{data ? data.length : ""}</span>
@@ -40,10 +54,9 @@ const CartSection = () => {
                         <p className='text-sm pb-2'><span>Items: </span><span className='font-semibold text-greentheame'>{data ? data.length : 0}</span></p>
                         <p className='text-sm'><span>Total Amount: </span><span className='font-semibold text-greentheame'>₹{totalAmount ? totalAmount : 0}/-</span></p>
                         <div className='border-t pt-2 mt-2 mb-6 '>
-                            <Link to="/checkout"
+                            <Link to="#" onClick={() => handleRouteChange('/checkout')}
                                 className="text-sm block text-center w-full bg-greentheame text-white px-3 py-1 rounded-md hover:bg-greentheameHover transition"
-                            >
-                                Checkout
+                            >Checkout
                             </Link>
                         </div>
                     </div>

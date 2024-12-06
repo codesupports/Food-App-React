@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react'
 import hamburgerIcon from '../../public/hamburger.svg'
 import { useSelector, useDispatch } from 'react-redux';
 import { searhData } from '../features/productSlice'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
 
 const Header = () => {
+    const location = useLocation();
+
     const data = useSelector((state) => state.product.data);
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
@@ -57,9 +60,11 @@ const Header = () => {
                     </nav>
 
                     <div className="relative hidden sm:block">
-                        <input onChange={(e) => handelSearch(e.target.value)} type="text" placeholder="Search..." className="px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 w-48 md:w-64" />
-
+                        {location.pathname === '/' &&
+                            <input onChange={(e) => handelSearch(e.target.value)} type="text" placeholder="Search..." className="px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 w-48 md:w-64" />
+                        }
                     </div>
+
                 </div>
             </header>
         </>
