@@ -178,6 +178,6 @@ const FoodData = [
     desc: "Indulge in a colorful assortment of fruit skewers featuring juicy chunks of melon, berries, pineapple, and more. A sweet and refreshing snack that's both delicious and visually appealing.",
     category: "Snacks",
     rating: 4.8,
-  },
+  }
 ];
 export default FoodData;

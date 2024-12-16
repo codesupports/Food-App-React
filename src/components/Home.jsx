@@ -14,7 +14,7 @@ const Home = () => {
             <div className='container m-auto font-sans'>
                 <main>
                     <Categoery />
-                    <div className='flex flex-wrap lg:pb-28'>
+                    <div className='flex flex-wrap lg:pb-28 transition-all duration-300 ease-in-out '>
                         <Card />
                     </div>
                 </main>
